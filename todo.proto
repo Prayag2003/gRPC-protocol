@@ -1,0 +1,21 @@
+syntax="proto3";
+    
+// define a package 
+package todoPackage;
+
+// package includes multiple services
+service Todo {
+    rpc createTodo(TodoItem) returns (TodoItem);
+    rpc readTodos(noParams) returns (TodoItems);
+}
+
+message noParams{}
+
+message TodoItem{
+    int32 id = 1;
+    string text = 2;
+}
+
+message TodoItems{
+    repeated TodoItem items = 1;
+}
